@@ -1,7 +1,7 @@
 package studentroster;
 
 public enum Major {
-    CS("01:198", "SAS"),
+    CS("01:198", "SAS"),m
     MATH("01:640", "SAS"),
     EE("14:332", "SOE"),
     ITI("04:547", "SC&I"),
