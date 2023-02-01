@@ -1,3 +1,7 @@
+package studentroster;
+
+import studentroster.Student;
+
 public class Roster {
     private Student[] roster;
     private int size;
