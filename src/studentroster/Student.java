@@ -12,11 +12,12 @@ public class Student implements Comparable<Student> {
                 && this.dob.equals(other.dob);
 
     }
-
+    @Override
     public String toString()
     {
-        return profile.toString();
+        return profile.toString() +  " "; //add major to this
     }
+    @Override
 
     public int compareTo(Student other)
     {

@@ -15,21 +15,17 @@ public class Profile implements Comparable<Profile>{
     {
 
     }
-
+    @Override
     public String toString()
     {
 
-        return lname + " " +  fname + " " + dob;
-    }
-
-    public boolean compareTo()
-    {
-
+        return lname + " " +  fname + " " + dob.toString();
     }
 
 
-
-
-
+    @Override
+    public int compareTo(Profile o) {
+        return 0;
+    }
 }
 
