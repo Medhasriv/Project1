@@ -13,7 +13,9 @@ public class Profile implements Comparable<Profile>{
 
     public boolean equals(Profile p)
     {
-
+        return this.fname.equals(p.fname)
+                && this.lname.equals(p.lname)
+                && this.dob.equals(p.dob);
     }
     @Override
     public String toString()

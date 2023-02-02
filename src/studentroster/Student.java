@@ -7,9 +7,9 @@ public class Student implements Comparable<Student> {
 
     public boolean equals(Student other)
     {
-        return this.fname.equals(other.fname)
-                && this.lname.equals(other.lname)
-                && this.dob.equals(other.dob);
+        return this.profile.equals(other.profile)
+                && this.major.equals(other.major)
+                && this.creditCompleted == other.creditCompleted;
 
     }
     @Override

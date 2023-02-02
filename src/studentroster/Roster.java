@@ -46,9 +46,7 @@ public class Roster {
         }
         return false;
     } //if the student is in roster
-    public void print () {
-
-    } //print roster sorted by profiles
+    public void print () {} //print roster sorted by profiles
     public void printBySchoolMajor() {} //print roster sorted by school major
     public void printByStanding() {} //print roster sorted by standing
 }
