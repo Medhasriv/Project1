@@ -1,4 +1,5 @@
 package studentroster;
+import java.util.Calendar;
 
 public class Date implements Comparable<Date> {
         private int year;
@@ -10,6 +11,10 @@ public class Date implements Comparable<Date> {
         public static final int QUATERCENTENNIAL = 400;
 
         public Date() {
+                Calendar today = Calendar.getInstance();
+                int year = today.get(Calendar.YEAR);
+                int month = today.get(Calendar.MONTH) +1;
+                int day = today.get(Calendar.DAY);
 
         } //create an object with today’s date (see Calendar class)
         public Date(int y, int m, int d) {
@@ -20,8 +25,15 @@ public class Date implements Comparable<Date> {
 
 
         public Date(String date) {
-                Date object = new Date();
+                String[] arrOfStr = date.split("/", 3);
 
+                String m = (arrOfStr[0]);
+                String d= (arrOfStr[1]);
+                String y = (arrOfStr[2]);
+
+                 month = Integer.parseInt(m);
+                 day = Integer.parseInt(d);
+                 year = Integer.parseInt(y);
         }
 
 
@@ -33,19 +45,19 @@ public class Date implements Comparable<Date> {
         }
 
         public boolean isValidDay() {
-                if ( (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && ((day<=31) && (day>=1)) )
+                if ( (month == Calendar.JANUARY || month == Calendar.MARCH || month == Calendar.MAY || month == Calendar.JUlY|| month == Calendar.AUGUST || month == Calendar.AUGUST || month == Calendar.DECEMBER) && ((day<=31) && (day>=1)) )
                 {
                         return true;
                 }
-                else if ( (month == 4 || month == 6 || month == 9 || month == 11) && ((day<=30) && (day>=1)) )
+                else if ( (month == Calendar.APRIL|| month == Calendar.JUNE || month == Calendar.SEPTEMBER || month == Calendar.NOVEMBER) && ((day<=30) && (day>=1)) )
                 {
                         return true;
                 }
-                else if ( (month == 2) && ( isLeapYear = true) && ((day<=29) && (day>=1)) )
+                else if ( (month == Calendar.FEBRUARY) && ( isLeapYear()) && ((day<=29) && (day>=1)) )
                 {
                         return true;
                 }
-                else if ( (month == 2) && ( isLeapYear = false) && ((day<=28) && (day>=1)) )
+                else if ( (month == Calendar.FEBRUARY) && ( !isLeapYear()) && ((day<=28) && (day>=1)) )
                 {
                         return true;
                 }
@@ -60,14 +72,14 @@ public class Date implements Comparable<Date> {
         public boolean isLeapYear() {
                 boolean isLeapYear;
 
-                if(year/4 == 1) {
+                if(year/QUADRENNIAL == 1) {
                         isLeapYear = false;
                 }
-                if(year/100 == 1) {
+                if(year/CENTENNIAL == 1) {
                         isLeapYear = true;
                 }
 
-                if(year/400 == 1) {
+                if(year/QUATERCENTENNIAL == 1) {
                         isLeapYear = false;
                 }
 
@@ -83,21 +95,43 @@ public class Date implements Comparable<Date> {
 
         @Override
         public String toString() {
-                return month + "/" + date + "/" + year;
+                return month + "/" + day + "/" + year;
         }
 
         @Override
         public boolean equals(Date other) {
-               return ((this.day == other.day) && (this.date == other.date)
-                       && (this.year == other.year));
-
+               return ((this.day.equals(other.day)) && (this.day.equals(other.day))
+                       && (this.year.equals(other.year)));
         }
 
 
 
         @Override
-        public int compareTo(Date o) {
+        public int compareTo(Date other) {
+                //1 means older
+                if(this.year> other.year)
+                {
+                        return 1;
+                }
+                else if(this.year<other.year)
+                {
+                        return -1;
+                }
+                else if(this.month> other.month)
+                {
+                        return 1;
+                }
+                else if(this.month < other.month)
+                {
+                        return -1;
+                }
+                else if (this.day>other.month)
+                {
+                        return 1;
+                } else if (this.day<other.month) {
+                        return 1;
+                }
                 return 0;
         }
 }
-}
+

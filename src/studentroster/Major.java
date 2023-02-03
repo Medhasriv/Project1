@@ -14,4 +14,6 @@ public enum Major {
         this.courseId = courseId;
         this.school = school;
     }
+
+
 }

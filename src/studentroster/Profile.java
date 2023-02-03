@@ -27,7 +27,40 @@ public class Profile implements Comparable<Profile>{
 
     @Override
     public int compareTo(Profile o) {
-        return 0;
+        if((this.lname.compareTo(other.lname))> 0) //pos means greater than 0; here we're comparing string compareTo
+        {
+            return -1;
+        }
+        else if((this.lname.compareTo(other.lname))< 0) //pos means greater than 0; here we're comparing string compareTo
+        {
+            return 1;
+        }
+        else if ((this.fname.compareTo(other.fanme))> 0)
+        {
+            return -1;
+        }
+        else if((this.fname.compareTo(other.fname))< 0)
+        {
+            return 1;
+        }
+        else if ((this.dob.compareTo(other.dob))< 0)
+        {
+            return -1;
+        }
+        else if ((this.dob.compareTo(other.dob))> 0)
+        {
+            return 1;
+        }
+        else
+            return 0;
+
     }
 }
 
+
+/*
+
+- what are we comparing for in profile?
+-for date: do we need getter method? up to you!
+
+ */

@@ -21,12 +21,11 @@ public class Student implements Comparable<Student> {
 
     public int compareTo(Student other)
     {
-
-        if(this.creditCompleted < (other.creditCompleted))
+        if((this.profile.compareTo(other.profile))> 0)
         {
             return -1;
         }
-        if(this.creditCompleted > (other.creditCompleted))
+        if((this.profile.compareTo(other.profile))< 0)
         {
             return 1;
         }
