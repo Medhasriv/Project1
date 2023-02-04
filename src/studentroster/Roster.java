@@ -6,12 +6,14 @@ public class Roster {
     private Student[] roster;
     private int size;
     private int find(Student student) {
+        //ASK DOES THIS NEED TO BE "CONST INT" OR "FINAL INT" OR JUST "INT"
+        int NOT_FOUND = -1;
         for(int i=0; i<size-1; i++){
             if(roster[i].equals(student)){
                 return i;
             }
         }
-        return 0;
+        return NOT_FOUND;
     } //search the given student in roster
 
 
@@ -72,4 +74,9 @@ public class Roster {
     } //print roster sorted by profiles
     public void printBySchoolMajor() {} //print roster sorted by school major
     public void printByStanding() {} //print roster sorted by standing
+
+    public void ChangeMajor(Student s, Major newMajor){
+        int StudentIndex = find(s);
+        roster[StudentIndex].setMajor(newMajor);
+    }
 }

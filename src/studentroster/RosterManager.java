@@ -3,68 +3,109 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 public class RosterManager {
     Scanner input  = new Scanner(System.in);
-    System.out.print("Roster Manager running...");
+    Roster newRoster = new Roster();
 
     public void run()
     {
+        System.out.print("Roster Manager running...");
         String inputString;
-        while(input.hasNext()) {
+        while(input.hasNext()) { //IMPORTANTE! fix how to quit
             inputString = input.nextLine();
             if(inputString.equals("Q")) {
                 System.out.print("Roster Manager terminated");
                 input.close();
-            }
-            else {
+            } else {
                 assignValues(inputString);
             }
         }
     }
-    public int assignValues(String inputString)
-    {
-
+    public void assignValues(String inputString) {
         StringTokenizer st = new StringTokenizer(inputString, " ");
-
+        //this list will be used
+        String[] majorList = {"CS", "EE","ITI", "BAIT","MATH"};
 
         if(st.nextToken().equals("A")) {
+            //string tokenizer to divide up the string
             String firstName = st.nextToken();
             String lastName = st.nextToken();
             String dob = st.nextToken();
-            String major = st.nextToken();
+            String major = st.nextToken().toUpperCase();
             int credits = Integer.parseInt((st.nextToken()));
 
+            //current date + checking if valid
             Date d = new Date(dob);
-            Profile thisStudent = new Profile(lastName, firstName, dob);
-
             boolean isValid = d.isValid();
-            boolean isOldEnough = false;
 
+            //making a student profile and age is valid
+            Profile thisStudent = new Profile(lastName, firstName, d);
             int age = thisStudent.getAge();
 
-            if(age > 16)
-            {
-                isOldEnough = true;
+            //checking if major exists
+            boolean containsMajor = false;
+            for(int i=0; i<majorList.length; i++){
+                if(majorList[i].equals(major)){
+                    containsMajor = true;
+                }
             }
 
+            //checking for valid DOB + age, adding an ENUM if this exists
+            if(age > 16 && isValid && containsMajor){
+                Major studentMajorEnum = Major.valueOf(major);
+                //making sure credits are positive
+                if(credits>=0){
+                    //checking if student is in the roster, then adding student meeting all requirements
+                    Student newStudent = new Student(thisStudent, studentMajorEnum, credits);
+                    if(!newRoster.contains(newStudent)){
+                        newRoster.add(newStudent);
+                    }
+                }
+            }
+        } else if(st.nextToken().equals("R")) {
+            //string tokenizer takes in first name, last name, date of birth
+            String firstName = st.nextToken();
+            String lastName = st.nextToken();
+            String dob = st.nextToken();
 
+            //making the Date, Profile, and Student
+            Date RMDate = new Date(dob);
+            Profile RMProfile = new Profile(lastName, firstName, RMDate);
+            Student RMStudent = new Student(RMProfile);
 
-        }
-        if(st.nextToken().equals("R")) {
+            //removing from the roster if it exists
+            if(newRoster.contains(RMStudent)){
+                newRoster.remove(RMStudent);
+            }
+        } else if(st.nextToken().equals("P")) {
+            newRoster.print();
+        } else if(st.nextToken().equals("PS")) {
+            newRoster.printByStanding();
+        } else if(st.nextToken().equals("PC")) {
+            newRoster.printBySchoolMajor();
+        } else if(st.nextToken().equals("L")) {
+            String schoolName = st.nextToken().toUpperCase();
 
-        }
-        if(st.nextToken().equals("P")) {
+            //make a new roster containing only student from specified school
+            Roster schoolRoster = new Roster();
 
-        }
-        if(st.nextToken().equals("PS")) {
+            //print as normal
+            schoolRoster.print();
+        } else if(st.nextToken().equals("C")) {
+            //takes in info about student
+            String firstName = st.nextToken();
+            String lastName = st.nextToken();
+            String dob = st.nextToken();
+            String newMajor = st.nextToken();
 
-        }
-        if(st.nextToken().equals("L")) {
+            //making the Date, Profile, and Student
+            Date RMDate = new Date(dob);
+            Profile CProfile = new Profile(lastName, firstName, RMDate);
+            Student CStudent = new Student(CProfile);
+            Major MajorEnum = Major.valueOf(newMajor);
 
-        }
-        if(st.nextToken().equals("C")) {
-
-        }
-        if(st.nextToken().equals("Q")) {
-
+            //Changing the major of the student
+            newRoster.ChangeMajor(CStudent, MajorEnum);
+        } else if(st.nextToken().equals("Q")) {
+            System.out.println("Roster Manager terminated.");
         }
     }
 }

@@ -7,22 +7,21 @@ public class Student implements Comparable<Student> {
 
     public Student(Profile p, Major m, int credits)
     {
-        profile = p;
-        major = m;
-        creditCompleted = credits;
+        this.profile = p;
+        this.major = m;
+        this.creditCompleted = credits;
     }
 
     public Student(Profile p)
     {
-        profile = p;
-        major = null;
-        creditCompleted = 0;
+        this.profile = p;
+        this.major = null;
+        this.creditCompleted = 0;
     }
 
-
-
-
-
+    public void setMajor(Major m){
+        this.major = m;
+    }
     public int returnCredits()
     {
         return creditCompleted;
