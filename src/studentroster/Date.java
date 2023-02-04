@@ -112,6 +112,7 @@ public class Date implements Comparable<Date> {
                 return month + "/" + day + "/" + year;
         }
 
+        @Override
         public boolean equals(Date other) {
 
                 return (
@@ -120,13 +121,13 @@ public class Date implements Comparable<Date> {
                                 this.year == other.year
                 );
         }
-        //ASK HER - do I need to remove override command here?
+        //ASK HER - do I need to remove override command here? Why am I having problems with equal override method
+
 
 
 
         @Override
         public int compareTo(Date other) {
-                //1 means older
                 if(this.year> other.year)
                 {
                         return 1;

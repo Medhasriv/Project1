@@ -18,20 +18,20 @@ public class Profile implements Comparable<Profile>{
         int d = dob.getDay();
 
         Date today = new Date();
-        int mToday = today.getMonth();
-        int yToday = today.getYear();
-        int dToday = today.getDay();
+        int monthToday = today.getMonth();
+        int yearToday = today.getYear();
+        int dayToday = today.getDay();
 
 
-        int age = yToday - y;
+        int age = yearToday - y;
 
-        if(m > mToday)
+        if(m > monthToday)
         {
             age--;
         }
-        else if(m == mToday)
+        else if(m == monthToday)
         {
-            if(d > dToday)
+            if(d > dayToday)
             {
                 age--;
             }
