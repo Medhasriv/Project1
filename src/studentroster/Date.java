@@ -100,9 +100,14 @@ public class Date implements Comparable<Date> {
 
         @Override
         public boolean equals(Date other) {
-               return ((this.day.equals(other.day)) && (this.day.equals(other.day))
-                       && (this.year.equals(other.year)));
+
+                return (
+                        this.day == other.day &&
+                                this.month == other.month &&
+                                this.year == other.year
+                );
         }
+        //ASK HER
 
 
 
