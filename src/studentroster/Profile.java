@@ -26,7 +26,7 @@ public class Profile implements Comparable<Profile>{
 
 
     @Override
-    public int compareTo(Profile o) {
+    public int compareTo(Profile other) {
         if((this.lname.compareTo(other.lname))> 0) //pos means greater than 0; here we're comparing string compareTo
         {
             return -1;
@@ -35,7 +35,7 @@ public class Profile implements Comparable<Profile>{
         {
             return 1;
         }
-        else if ((this.fname.compareTo(other.fanme))> 0)
+        else if ((this.fname.compareTo(other.fname))> 0)
         {
             return -1;
         }

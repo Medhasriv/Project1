@@ -70,6 +70,9 @@ public class Roster {
             System.out.println(roster[k]);
         }
     } //print roster sorted by profiles
-    public void printBySchoolMajor() {} //print roster sorted by school major
+    public void printBySchoolMajor() {
+
+
+    } //print roster sorted by school major
     public void printByStanding() {} //print roster sorted by standing
 }
