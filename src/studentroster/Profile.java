@@ -7,8 +7,8 @@ public class Profile implements Comparable<Profile>{
 
     public Profile(String last, String first, Date d)
     {
-        lname = last;
-        fname = first;
+        this.lname = last;
+        this.fname = first;
     }
 
     public int getAge()

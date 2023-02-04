@@ -17,9 +17,17 @@ public class Roster {
     } //search the given student in roster
 
 
+
+
+
     private void grow() {
 
     } //increase the array capacity by 4
+
+    public int getSize()
+    {
+        return size;
+    }
 
 
     public boolean add(Student student){
@@ -54,6 +62,9 @@ public class Roster {
         }
         return false;
     } //if the student is in roster
+
+
+
     public void print () {
         //selection sort on print...not sure if this works
         for(int i=0; i<roster.length-1; i++){
@@ -72,8 +83,51 @@ public class Roster {
             System.out.println(roster[k]);
         }
     } //print roster sorted by profiles
-    public void printBySchoolMajor() {} //print roster sorted by school major
-    public void printByStanding() {} //print roster sorted by standing
+    public void printBySchoolMajor() {
+
+        //figure out priority so is profile, major, or credit completed most important
+        //the answer:student, then major, then credits
+
+
+        for(int i=0; i<roster.length-1; i++){
+            int min = i;
+            for(int j=1+i; j<roster.length; j++){
+
+                if(roster[j].getMajor().toString().compareTo(roster[min].getMajor().toString()) ==-1){
+                    min = j;
+                }
+            }
+            Student temp = roster[min];
+            roster[min] = roster[i];
+            roster[i] = temp;
+        }
+
+        for(int k=0; k<roster.length; k++){
+            System.out.println(roster[k]);
+        }
+
+
+    } //print roster sorted by school major
+    public void printByStanding() {
+        for(int i=0; i<roster.length-1; i++){
+            int min = i;
+            for(int j=1+i; j<roster.length; j++){
+
+                if(roster[j].returnStanding().compareTo(roster[min].returnStanding())==-1){
+
+                    min = j;
+                }
+            }
+            Student temp = roster[min];
+            roster[min] = roster[i];
+            roster[i] = temp;
+        }
+
+        for(int k=0; k<roster.length; k++){
+            System.out.println(roster[k]);
+        }
+
+    } //print roster sorted by standing
 
     public void ChangeMajor(Student s, Major newMajor){
         int StudentIndex = find(s);

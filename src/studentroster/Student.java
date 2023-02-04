@@ -19,9 +19,23 @@ public class Student implements Comparable<Student> {
         this.creditCompleted = 0;
     }
 
+    public String getSchool()
+    {
+        return major.getSchool();
+    }
+
+    public Major getMajor()
+    {
+        return major;
+    }
+
     public void setMajor(Major m){
         this.major = m;
     }
+
+
+
+
     public int returnCredits()
     {
         return creditCompleted;
@@ -51,14 +65,7 @@ public class Student implements Comparable<Student> {
         }
     }
 
-    public String getMajor()
-    {
-        if(this.major == null)
-        {
-            return "N/A";
-        }
 
-    }
     @Override
     public String toString()
     {
@@ -68,6 +75,9 @@ public class Student implements Comparable<Student> {
     @Override
     public boolean equals(Student other)
     {
+        boolean returnStatement = false;
+
+
         return this.profile.equals(other.profile)
                 && this.major.equals(other.major)
                 && this.creditCompleted == other.creditCompleted;

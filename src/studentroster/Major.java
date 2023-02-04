@@ -15,6 +15,13 @@ public enum Major {
         this.school = school;
     }
 
+    String getSchool()
+    {
+        return school;
+    }
+
+    //ASK HER IF ENUM CLASSES HAVE THEIR OWN TO STRING: we're calling the toString in our Roster class
+
 
 
 

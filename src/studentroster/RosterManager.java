@@ -85,7 +85,28 @@ public class RosterManager {
             String schoolName = st.nextToken().toUpperCase();
 
             //make a new roster containing only student from specified school
+
+
+
+
+            //COME BACK TO THIS
+
+
+
+
             Roster schoolRoster = new Roster();
+            int j = 0;
+            for(int i=0; i<newRoster.getSize(); i++)
+            {
+                Student[] tempStudent = newRoster[i];
+
+                if(newRoster[i].getSchool().equals(schoolName))
+                {
+                    schoolRoster[j] = newRoster[i];
+                    j++;
+                }
+            }
+
 
             //print as normal
             schoolRoster.print();
