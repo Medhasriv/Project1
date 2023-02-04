@@ -112,7 +112,6 @@ public class Date implements Comparable<Date> {
                 return month + "/" + day + "/" + year;
         }
 
-        @Override
         public boolean equals(Date other) {
 
                 return (
@@ -121,7 +120,7 @@ public class Date implements Comparable<Date> {
                                 this.year == other.year
                 );
         }
-        //ASK HER
+        //ASK HER - do I need to remove override command here?
 
 
 

@@ -47,8 +47,6 @@ public class RosterManager {
 
 
 
-
-
         }
         if(st.nextToken().equals("R")) {
 

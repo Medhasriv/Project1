@@ -5,10 +5,11 @@ public class Student implements Comparable<Student> {
     private Major major; //Major is an enum type
     private int creditCompleted;
 
-    public Student(String input)
+    public Student(Profile p, Major m, int credits)
     {
-x       //student is at least 16 years old from today
-
+        p = this.profile;
+        m = this.major;
+        creditCompleted = this.creditCompleted;
     }
 
 
@@ -49,14 +50,13 @@ x       //student is at least 16 years old from today
             return "N/A";
         }
 
-        String m =
-        return m;
     }
     @Override
     public String toString()
     {
         return profile.toString() +  this.major; //add major to this
     }
+
     @Override
     public boolean equals(Student other)
     {
@@ -66,6 +66,7 @@ x       //student is at least 16 years old from today
 
     }
 
+    @Override
     public int compareTo(Student other)
     {
         if((this.profile.compareTo(other.profile))> 0)

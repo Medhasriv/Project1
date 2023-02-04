@@ -40,6 +40,7 @@ public class Profile implements Comparable<Profile>{
 
     }
 
+    @Override
     public boolean equals(Profile p)
     {
         return this.fname.equals(p.fname)
