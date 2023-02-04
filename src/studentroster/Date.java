@@ -6,15 +6,13 @@ public class Date implements Comparable<Date> {
         private int month;
         private int day;
 
-        public static final int QUADRENNIAL = 4;
-        public static final int CENTENNIAL = 100;
-        public static final int QUATERCENTENNIAL = 400;
+
 
         public Date() {
                 Calendar today = Calendar.getInstance();
                 int year = today.get(Calendar.YEAR);
                 int month = today.get(Calendar.MONTH) +1;
-                int day = today.get(Calendar.DAY);
+                int day = today.get(Calendar.DATE);
 
         } //create an object with today’s date (see Calendar class)
         public Date(int y, int m, int d) {
@@ -23,7 +21,17 @@ public class Date implements Comparable<Date> {
                 day = d;
         } //take “mm/dd/yyyy” and create a Date object
 
+        public int getYear(){
+                return year;
+        }
 
+        public int getMonth(){
+                return month;
+        }
+
+        public int getDay(){
+              return day;
+        }
         public Date(String date) {
                 String[] arrOfStr = date.split("/", 3);
 
@@ -37,12 +45,14 @@ public class Date implements Comparable<Date> {
         }
 
 
+
         public boolean isValidMonth() {
                 if(month >= 1 && month <=12) {
                         return true;
                 }
                 return false;
         }
+
 
         public boolean isValidDay() {
                 if ( (month == Calendar.JANUARY || month == Calendar.MARCH || month == Calendar.MAY || month == Calendar.JUlY|| month == Calendar.AUGUST || month == Calendar.AUGUST || month == Calendar.DECEMBER) && ((day<=31) && (day>=1)) )
@@ -70,6 +80,10 @@ public class Date implements Comparable<Date> {
         }
 
         public boolean isLeapYear() {
+
+                final int QUADRENNIAL = 4;
+                final int CENTENNIAL = 100;
+                final int QUATERCENTENNIAL = 400;
                 boolean isLeapYear;
 
                 if(year/QUADRENNIAL == 1) {
