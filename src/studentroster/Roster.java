@@ -7,13 +7,12 @@ public class Roster {
     private int size;
     private int find(Student student) {
         for(int i=0; i<size-1; i++){
-            if(roster[i]==student){
+            if(roster[i].equals(student)){
                 return i;
             }
         }
         return 0;
     } //search the given student in roster
-
 
     private void grow() {
 
@@ -22,7 +21,7 @@ public class Roster {
 
     public boolean add(Student student){
         for(int i=0; i<size; i++){
-            if(roster[i]==null){
+            if(roster[i].equals(null)){
                 roster[i]= student;
                 size++;
                 return true;
@@ -32,7 +31,7 @@ public class Roster {
     } //add student to end of array
     public boolean remove(Student student){
         for(int i=0; i<size-1; i++){
-            if(roster[i]==student){
+            if(roster[i].equals(student)){
                 roster[i] = null;
                 for(int j = i; j<size-1; j++){
                     roster[j] = roster[j+1];
@@ -46,7 +45,7 @@ public class Roster {
     }//maintain the order after remove
     public boolean contains(Student student){
         for(int i=0; i<size-1; i++){
-            if(roster[i]==student){
+            if(roster[i].equals(student)){
                 return true;
             }
         }
@@ -70,6 +69,8 @@ public class Roster {
             System.out.println(roster[k]);
         }
     } //print roster sorted by profiles
-    public void printBySchoolMajor() {} //print roster sorted by school major
+    public void printBySchoolMajor() {
+
+    } //print roster sorted by school major
     public void printByStanding() {} //print roster sorted by standing
 }
