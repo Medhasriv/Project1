@@ -11,6 +11,35 @@ public class Profile implements Comparable<Profile>{
         fname = first;
     }
 
+    public int getAge()
+    {
+        int m = dob.getMonth();
+        int y = dob.getYear();
+        int d = dob.getDay();
+
+        Date today = new Date();
+        int mToday = today.getMonth();
+        int yToday = today.getYear();
+        int dToday = today.getDay();
+
+
+        int age = yToday - y;
+
+        if(m > mToday)
+        {
+            age--;
+        }
+        else if(m == mToday)
+        {
+            if(d > dToday)
+            {
+                age--;
+            }
+        }
+        return age;
+
+    }
+
     public boolean equals(Profile p)
     {
         return this.fname.equals(p.fname)
