@@ -41,11 +41,17 @@ public class Profile implements Comparable<Profile>{
     }
 
     @Override
-    public boolean equals(Profile p)
+    public boolean equals(Object p)
     {
-        return this.fname.equals(p.fname)
-                && this.lname.equals(p.lname)
-                && this.dob.equals(p.dob);
+        if(p instanceof Profile)
+        {
+            Profile profile = (Profile) p;
+            return this.fname.equals(profile.fname)
+                    && this.lname.equals(profile.lname)
+                    && this.dob.equals(profile.dob);
+        }
+        return false;
+
     }
     @Override
     public String toString()

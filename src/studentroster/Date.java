@@ -55,7 +55,7 @@ public class Date implements Comparable<Date> {
 
 
         public boolean isValidDay() {
-                if ( (month == Calendar.JANUARY || month == Calendar.MARCH || month == Calendar.MAY || month == Calendar.JUlY|| month == Calendar.AUGUST || month == Calendar.AUGUST || month == Calendar.DECEMBER) && ((day<=31) && (day>=1)) )
+                if ( (month == Calendar.JANUARY || month == Calendar.MARCH || month == Calendar.MAY || month == Calendar.JULY|| month == Calendar.AUGUST || month == Calendar.AUGUST || month == Calendar.DECEMBER) && ((day<=31) && (day>=1)) )
                 {
                         return true;
                 }
@@ -84,7 +84,7 @@ public class Date implements Comparable<Date> {
                 final int QUADRENNIAL = 4;
                 final int CENTENNIAL = 100;
                 final int QUATERCENTENNIAL = 400;
-                boolean isLeapYear;
+                boolean isLeapYear = false;
 
                 if(year/QUADRENNIAL == 1) {
                         isLeapYear = false;
@@ -96,6 +96,7 @@ public class Date implements Comparable<Date> {
                 if(year/QUATERCENTENNIAL == 1) {
                         isLeapYear = false;
                 }
+                return isLeapYear;
 
         }
 
@@ -113,13 +114,17 @@ public class Date implements Comparable<Date> {
         }
 
         @Override
-        public boolean equals(Date other) {
+        public boolean equals(Object other) {
 
-                return (
-                        this.day == other.day &&
-                                this.month == other.month &&
-                                this.year == other.year
-                );
+                if(other instanceof Date)
+                {
+                        Date date = (Date) other;
+                        return  (this.day == date.day &&
+                                this.month == date.month &&
+                                this.year == date.year);
+                }
+                return false;
+
         }
         //ASK HER - do I need to remove override command here? Why am I having problems with equal override method
 

@@ -18,8 +18,6 @@ public class Roster {
 
 
 
-
-
     private void grow() {
 
     } //increase the array capacity by 4
@@ -108,6 +106,21 @@ public class Roster {
 
 
     } //print roster sorted by school major
+
+    public void printBySchool(String school)
+    {
+
+        for(int i=0; i < roster.length; i++)
+        {
+            if(roster[i].getSchool().equals(school))
+            {
+                System.out.println((roster[i]));
+            }
+        }
+
+    }
+
+
     public void printByStanding() {
         for(int i=0; i<roster.length-1; i++){
             int min = i;

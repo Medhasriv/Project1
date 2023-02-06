@@ -73,14 +73,20 @@ public class Student implements Comparable<Student> {
     }
 
     @Override
-    public boolean equals(Student other)
+    public boolean equals(Object other) //Student other
     {
-        boolean returnStatement = false;
+
+        if(other instanceof Student)
+        {
+            Student student = (Student) other;
+
+            return this.profile.equals(student.profile)
+                    && this.major.equals(student.major)
+                    && this.creditCompleted == student.creditCompleted;
+        }
+        return false;
 
 
-        return this.profile.equals(other.profile)
-                && this.major.equals(other.major)
-                && this.creditCompleted == other.creditCompleted;
 
     }
 
