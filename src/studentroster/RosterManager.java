@@ -10,6 +10,7 @@ public class RosterManager {
         System.out.print("Roster Manager running...");
         String inputString;
         while(input.hasNext()) { //IMPORTANTE! fix how to quit
+            System.out.println();
             inputString = input.nextLine();
             if(inputString.equals("Q")) {
                 System.out.print("Roster Manager terminated");
@@ -26,7 +27,14 @@ public class RosterManager {
 
         if(st.nextToken().equals("A")) {
             //string tokenizer to divide up the string
+
+
+
             String firstName = st.nextToken();
+
+            System.out.print(firstName);
+
+
             String lastName = st.nextToken();
             String dob = st.nextToken();
             String major = st.nextToken().toUpperCase();

@@ -9,6 +9,7 @@ public class Profile implements Comparable<Profile>{
     {
         this.lname = last;
         this.fname = first;
+        this.dob = d;
     }
 
     public int getAge()
