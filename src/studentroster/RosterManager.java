@@ -24,8 +24,8 @@ public class RosterManager {
         StringTokenizer st = new StringTokenizer(inputString, " ");
         //this list will be used
         String[] majorList = {"CS", "EE","ITI", "BAIT","MATH"};
-
-        if(st.nextToken().equals("A")) {
+        String action = st.nextToken();
+        if(action.equals("A")) {
             //string tokenizer to divide up the string
 
 
@@ -68,7 +68,7 @@ public class RosterManager {
                     }
                 }
             }
-        } else if(st.nextToken().equals("R")) {
+        } else if(action.equals("R")) {
             //string tokenizer takes in first name, last name, date of birth
             String firstName = st.nextToken();
             String lastName = st.nextToken();
@@ -83,16 +83,16 @@ public class RosterManager {
             if(newRoster.contains(RMStudent)){
                 newRoster.remove(RMStudent);
             }
-        } else if(st.nextToken().equals("P")) {
+        } else if(action.equals("P")) {
             newRoster.print();
-        } else if(st.nextToken().equals("PS")) {
+        } else if(action.equals("PS")) {
             newRoster.printByStanding();
-        } else if(st.nextToken().equals("PC")) {
+        } else if(action.equals("PC")) {
             newRoster.printBySchoolMajor();
-        } else if(st.nextToken().equals("L")) {
+        } else if(action.equals("L")) {
             String schoolName = st.nextToken().toUpperCase();
             newRoster.printBySchool(schoolName);
-        } else if(st.nextToken().equals("C")) {
+        } else if(action.equals("C")) {
             //takes in info about student
             String firstName = st.nextToken();
             String lastName = st.nextToken();
@@ -107,7 +107,7 @@ public class RosterManager {
 
             //Changing the major of the student
             newRoster.ChangeMajor(CStudent, MajorEnum);
-        } else if(st.nextToken().equals("Q")) {
+        } else if(action.equals("Q")) {
             System.out.println("Roster Manager terminated.");
         }
     }
