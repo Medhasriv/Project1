@@ -32,7 +32,6 @@ public class RosterManager {
 
             String firstName = st.nextToken();
 
-            System.out.print(firstName);
 
 
             String lastName = st.nextToken();

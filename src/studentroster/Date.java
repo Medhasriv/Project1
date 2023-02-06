@@ -7,14 +7,24 @@ public class Date implements Comparable<Date> {
         private int day;
 
 
-
         public Date() {
+                Calendar today = Calendar.getInstance();
+                this.year = today.get(Calendar.YEAR);
+                this.month = today.get(Calendar.MONTH) +1;
+                this.day = today.get(Calendar.DATE);
+
+
+        }//create an object with today’s date (see Calendar class)
+
+        public Date getToday()
+        {
                 Calendar today = Calendar.getInstance();
                 int year = today.get(Calendar.YEAR);
                 int month = today.get(Calendar.MONTH) +1;
                 int day = today.get(Calendar.DATE);
-
-        } //create an object with today’s date (see Calendar class)
+                Date t = new Date(month, day, year);
+                return t;
+        }
         public Date(int y, int m, int d) {
                 year = y;
                 month = m;

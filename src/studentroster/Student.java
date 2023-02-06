@@ -69,7 +69,7 @@ public class Student implements Comparable<Student> {
     @Override
     public String toString()
     {
-        return profile.toString() +  this.major; //add major to this
+        return profile.toString() +  " " + this.major; //add major to this
     }
 
     @Override
