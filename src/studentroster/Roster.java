@@ -173,6 +173,15 @@ public class Roster {
 
     public void ChangeMajor(Student s, Major newMajor){
         int StudentIndex = find(s);
-        roster[StudentIndex].setMajor(newMajor);
+
+        if(StudentIndex == -1)
+        {
+            System.out.println("Student not found");
+        }
+
+        if(StudentIndex !=-1)
+        {
+            roster[StudentIndex].setMajor(newMajor);
+        }
     }
 }
