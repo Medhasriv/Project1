@@ -22,7 +22,7 @@ public class Roster {
         int NOT_FOUND = -1;
         for(int i=0; i<size; i++){
             if(roster[i].equals(student)){
-                NOT_FOUND = i;
+                return i;
             }
         }
         return NOT_FOUND;
@@ -52,12 +52,10 @@ public class Roster {
 
 
     public boolean add(Student student){
-       if(roster == null)
-       {
+       if(roster == null){
            grow();
        }
-        if (roster.length -1 ==size)
-        {
+        if (roster.length -1 ==size){
             grow();
         }
         roster[size] = student;
@@ -66,7 +64,6 @@ public class Roster {
         return true;
     } //add student to end of array
     public boolean remove(Student student){
-
         for(int i=0; i<size-1; i++){
             if(roster[i].equals(student)){
                 roster[i] = null;
@@ -82,14 +79,21 @@ public class Roster {
     }//maintain the order after remove
     public boolean contains(Student student){
         for(int i=0; i<size-1; i++){
-            if(roster[i].equals(student)){
+            if(find(student)!=-1){
                 return true;
             }
         }
         return false;
     } //if the student is in roster
 
-
+    public Student ProfileToStudent(Profile p){
+        for(int i=0; i<size; i++){
+            if(roster[i].getProfile().toString().equals(p.toString())) {
+                return roster[i];
+            }
+        }
+        return null;
+    }
 
     public void print () {
         //selection sort on print...not sure if this works
@@ -172,18 +176,15 @@ public class Roster {
 
     } //print roster sorted by standing
 
-    public void ChangeMajor(Student s, Major newMajor){
-
-        int StudentIndex = find(s);
-
-        if(StudentIndex == -1)
-        {
-            System.out.println("Student not found");
+    public void ChangeMajor(Profile p, Major newMajor){
+        //find in roster based on profile
+        for(int i=0; i<size; i++){
+            if(roster[i].getProfile().toString().equals(p.toString())){
+                roster[i].setMajor(newMajor);
+                return;
+            }
         }
-
-        if(StudentIndex !=-1)
-        {
-            roster[StudentIndex].setMajor(newMajor);
-        }
+        System.out.println("Student not found");
     }
 }
+

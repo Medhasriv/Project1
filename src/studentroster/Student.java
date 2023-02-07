@@ -33,11 +33,12 @@ public class Student implements Comparable<Student> {
         this.major = m;
     }
 
+    public Profile getProfile(){
+        return profile;
+    }
 
 
-
-    public int returnCredits()
-    {
+    public int returnCredits(){
         return creditCompleted;
     }
 

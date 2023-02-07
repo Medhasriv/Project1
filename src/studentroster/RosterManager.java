@@ -7,7 +7,7 @@ public class RosterManager {
 
     public void run()
     {
-        System.out.print("Roster Manager running...");
+        System.out.print("Roster Manager running...\n");
         String inputString;
 
 
@@ -26,13 +26,12 @@ public class RosterManager {
     }
     public void assignValues(String inputString) {
         StringTokenizer st = new StringTokenizer(inputString, " ");
+
         //this list will be used
         String[] majorList = {"CS", "EE","ITI", "BAIT","MATH"};
         String action = st.nextToken();
         if(action.equals("A")) {
             //string tokenizer to divide up the string
-
-
 
             String firstName = st.nextToken();
 
@@ -80,12 +79,8 @@ public class RosterManager {
             //making the Date, Profile, and Student
             Date RMDate = new Date(dob);
             Profile RMProfile = new Profile(lastName, firstName, RMDate);
-            Student RMStudent = new Student(RMProfile);
-
-            //removing from the roster if it exists
-            if(newRoster.contains(RMStudent)){
-                newRoster.remove(RMStudent);
-            }
+            Student RMStudent = newRoster.ProfileToStudent(RMProfile);
+            newRoster.remove(RMStudent);
         } else if(action.equals("P")) {
             newRoster.print();
         } else if(action.equals("PS")) {
@@ -102,14 +97,13 @@ public class RosterManager {
             String dob = st.nextToken();
             String newMajor = st.nextToken();
 
-            //making the Date, Profile, and Student
-            Date RMDate = new Date(dob);
-            Profile CProfile = new Profile(lastName, firstName, RMDate);
-            Student CStudent = new Student(CProfile);
+            //making the Date & Profile
+            Date CDate = new Date(dob);
+            Profile CProfile = new Profile(lastName, firstName, CDate);
             Major MajorEnum = Major.valueOf(newMajor);
 
             //Changing the major of the student
-            newRoster.ChangeMajor(CStudent, MajorEnum);
+            newRoster.ChangeMajor(CProfile, MajorEnum);
         } else if(action.equals("Q")) {
             System.out.println("Roster Manager terminated.");
             return;
