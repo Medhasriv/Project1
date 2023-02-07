@@ -58,7 +58,7 @@ public class Profile implements Comparable<Profile>{
     public String toString()
     {
 
-        return lname + " " +  fname + " " + dob.toString();
+        return fname + " " +  lname + " " + dob.toString();
     }
 
 

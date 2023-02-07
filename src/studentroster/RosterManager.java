@@ -9,6 +9,8 @@ public class RosterManager {
     {
         System.out.print("Roster Manager running...");
         String inputString;
+
+
         while(input.hasNext()) { //IMPORTANTE! fix how to quit
             System.out.println();
             inputString = input.nextLine();
@@ -19,6 +21,8 @@ public class RosterManager {
                 assignValues(inputString);
             }
         }
+        input.close();
+
     }
     public void assignValues(String inputString) {
         StringTokenizer st = new StringTokenizer(inputString, " ");
@@ -108,6 +112,8 @@ public class RosterManager {
             newRoster.ChangeMajor(CStudent, MajorEnum);
         } else if(action.equals("Q")) {
             System.out.println("Roster Manager terminated.");
+            return;
         }
+
     }
 }

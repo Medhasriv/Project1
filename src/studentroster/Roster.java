@@ -20,9 +20,9 @@ public class Roster {
     private int find(Student student) {
         //ASK DOES THIS NEED TO BE "CONST INT" OR "FINAL INT" OR JUST "INT"
         int NOT_FOUND = -1;
-        for(int i=0; i<size-1; i++){
+        for(int i=0; i<size; i++){
             if(roster[i].equals(student)){
-                return i;
+                NOT_FOUND = i;
             }
         }
         return NOT_FOUND;
@@ -112,15 +112,16 @@ public class Roster {
     } //print roster sorted by profiles
     public void printBySchoolMajor() {
 
-        //figure out priority so is profile, major, or credit completed most important
+        //figure out priority so is profile, major,xs or credit completed most important
         //the answer:student, then major, then credits
-
 
         for(int i=0; i<size; i++){
             int min = i;
             for(int j=1+i; j<size; j++){
+                String schoolMajorJ = roster[j].getSchool() +  roster[j].getMajor().toString();
+                String schoolMajorMin = roster[min].getSchool() + roster[min].getMajor().toString();
 
-                if(roster[j].getMajor().toString().compareTo(roster[min].getMajor().toString()) ==-1){
+                if(schoolMajorJ.compareTo(schoolMajorMin) <0){
                     min = j;
                 }
             }
@@ -136,7 +137,7 @@ public class Roster {
 
     } //print roster sorted by school major
 
-    public void printBySchool(String school)
+    public void printBySchool(String school)  //ex L SAS
     {
 
         for(int i=0; i < size; i++)
@@ -155,7 +156,7 @@ public class Roster {
             int min = i;
             for(int j=1+i; j<size; j++){
 
-                if(roster[j].returnStanding().compareTo(roster[min].returnStanding())==-1){
+                if(roster[j].returnStanding() <= (roster[min].returnStanding())){
 
                     min = j;
                 }
@@ -172,6 +173,7 @@ public class Roster {
     } //print roster sorted by standing
 
     public void ChangeMajor(Student s, Major newMajor){
+
         int StudentIndex = find(s);
 
         if(StudentIndex == -1)

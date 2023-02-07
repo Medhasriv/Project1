@@ -41,28 +41,30 @@ public class Student implements Comparable<Student> {
         return creditCompleted;
     }
 
-    public String returnStanding()
+    public int returnStanding()
     {
-        final int MAX_FRESHMEN = 30;
-        final int MAX_SOPHMORE = 60;
-        final int MAX_JUNIOR = 90;
+//        final int MAX_FRESHMEN = 30;
+//        final int MAX_SOPHMORE = 60;
+//        final int MAX_JUNIOR = 90;
 
-        if(creditCompleted >= MAX_JUNIOR)
-        {
-            return "senior";
-        }
-        else if(creditCompleted > MAX_SOPHMORE)
-        {
-            return "junior";
-        }
-        else if(creditCompleted > MAX_FRESHMEN)
-        {
-            return "sophmore";
-        }
-        else
-        {
-            return "freshmen";
-        }
+//        if(creditCompleted >= MAX_JUNIOR)
+//        {
+//            return "senior";
+//        }
+//        else if(creditCompleted > MAX_SOPHMORE)
+//        {
+//            return "junior";
+//        }
+//        else if(creditCompleted > MAX_FRESHMEN)
+//        {
+//            return "sophmore";
+//        }
+//        else
+//        {
+//            return "freshmen";
+//        }
+
+        return creditCompleted;
     }
 
 
