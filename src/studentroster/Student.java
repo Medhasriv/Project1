@@ -42,32 +42,12 @@ public class Student implements Comparable<Student> {
         return creditCompleted;
     }
 
-    public int returnStanding()
+    public String returnStanding()
     {
-//        final int MAX_FRESHMEN = 30;
-//        final int MAX_SOPHMORE = 60;
-//        final int MAX_JUNIOR = 90;
+        Standing standing;
+        return Standing.getLevelStanding(creditCompleted);
 
-//        if(creditCompleted >= MAX_JUNIOR)
-//        {
-//            return "senior";
-//        }
-//        else if(creditCompleted > MAX_SOPHMORE)
-//        {
-//            return "junior";
-//        }
-//        else if(creditCompleted > MAX_FRESHMEN)
-//        {
-//            return "sophmore";
-//        }
-//        else
-//        {
-//            return "freshmen";
-//        }
-
-        return creditCompleted;
     }
-
 
     @Override
     public String toString()

@@ -125,7 +125,8 @@ public class Roster {
                 String schoolMajorJ = roster[j].getSchool() +  roster[j].getMajor().toString();
                 String schoolMajorMin = roster[min].getSchool() + roster[min].getMajor().toString();
 
-                if(schoolMajorJ.compareTo(schoolMajorMin) <0){
+                if(schoolMajorJ.compareTo(schoolMajorMin) <0)
+                {
                     min = j;
                 }
             }
@@ -160,7 +161,7 @@ public class Roster {
             int min = i;
             for(int j=1+i; j<size; j++){
 
-                if(roster[j].returnStanding() <= (roster[min].returnStanding())){
+                if(roster[j].returnCredits() <= (roster[min].returnCredits())){
 
                     min = j;
                 }
@@ -171,7 +172,9 @@ public class Roster {
         }
 
         for(int k=0; k<size; k++){
-            System.out.println(roster[k]);
+
+
+            System.out.println(roster[k] + roster[k].returnCredits() + "(" + roster[k].getStanding() + ")" );
         }
 
     } //print roster sorted by standing

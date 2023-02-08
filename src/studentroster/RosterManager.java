@@ -11,7 +11,7 @@ public class RosterManager {
         String inputString;
 
 
-        while(input.hasNext()) { //IMPORTANTE! fix how to quit
+        while((input.hasNext())) { //IMPORTANTE! fix how to quit
             System.out.println();
             inputString = input.nextLine();
             if(inputString.equals("Q")) {
