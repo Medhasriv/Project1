@@ -9,21 +9,21 @@ public class RosterManager {
     {
         System.out.print("Roster Manager running...\n");
         String inputString;
+        boolean checkQuit = false;
 
 
-        while((input.hasNext())) { //IMPORTANTE! fix how to quit
+        while((input.hasNext()) && checkQuit == false) { //IMPORTANTE! fix how to quit
             System.out.println();
             inputString = input.nextLine();
             if(inputString.equals("Q")) {
                 System.out.print("Roster Manager terminated");
-                input.close();
+                checkQuit = true;
                 break;
             } else {
                 assignValues(inputString);
             }
         }
         input.close();
-
     }
     public void assignValues(String inputString) {
         StringTokenizer st = new StringTokenizer(inputString, " ");
