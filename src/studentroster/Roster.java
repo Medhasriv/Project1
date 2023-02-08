@@ -108,7 +108,6 @@ public class Roster {
             roster[min] = roster[i];
             roster[i] = temp;
         }
-
         for(int k=0; k<size; k++){
             System.out.println(roster[k]);
         }
@@ -124,6 +123,7 @@ public class Roster {
             for(int j=1+i; j<size; j++){
                 String schoolMajorJ = roster[j].getSchool() +  roster[j].getMajor().toString();
                 String schoolMajorMin = roster[min].getSchool() + roster[min].getMajor().toString();
+
 
                 if(schoolMajorJ.compareTo(schoolMajorMin) <0)
                 {
@@ -157,24 +157,31 @@ public class Roster {
 
 
     public void printByStanding() {
+        //for all freshmen, go by all first to last name order
         for(int i=0; i<size; i++){
             int min = i;
             for(int j=1+i; j<size; j++){
 
-                if(roster[j].returnCredits() <= (roster[min].returnCredits())){
+                if(roster[j].getStanding() < ((roster[min].getStanding()))){
 
                     min = j;
                 }
+
             }
             Student temp = roster[min];
             roster[min] = roster[i];
             roster[i] = temp;
         }
 
+        //first take this class ordered tog by all years
+
+        //then create another loop and order tog by names
+
         for(int k=0; k<size; k++){
 
-
-            System.out.println(roster[k] + roster[k].returnCredits() + "(" + roster[k].getStanding() + ")" );
+            String output = "";
+            output = roster[k] +  "(" + roster[k].getYear() + ")";
+            System.out.println(output);
         }
 
     } //print roster sorted by standing
