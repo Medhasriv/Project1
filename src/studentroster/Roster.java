@@ -180,7 +180,7 @@ public class Roster {
         for(int k=0; k<size; k++){
 
             String output = "";
-            output = roster[k] +  "(" + roster[k].getYear() + ")";
+            output = roster[k] +  " (" + roster[k].getYear() + ")";
             System.out.println(output);
         }
 

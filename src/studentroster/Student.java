@@ -44,8 +44,6 @@ public class Student implements Comparable<Student> {
 
     public char getStanding()
     {
-
-
         if(creditCompleted >= Standing.MIN_Freshmen.minCredits && creditCompleted <= Standing.MIN_Sophomore.minCredits )  //junior
         {
             return Standing.MIN_Freshmen.association;
@@ -84,7 +82,6 @@ public class Student implements Comparable<Student> {
             return Standing.MIN_Senior.year; //senior = d
         }
     }
-
 
 
     @Override
