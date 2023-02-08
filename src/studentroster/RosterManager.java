@@ -17,6 +17,7 @@ public class RosterManager {
             if(inputString.equals("Q")) {
                 System.out.print("Roster Manager terminated");
                 input.close();
+                break;
             } else {
                 assignValues(inputString);
             }
