@@ -64,7 +64,7 @@ public class Roster {
         return true;
     } //add student to end of array
     public boolean remove(Student student){
-        for(int i=0; i<size-1; i++){
+        for(int i=0; i<=size-1; i++){
             if(roster[i].equals(student)){
                 roster[i] = null;
                 for(int j = i; j<size-1; j++){
@@ -199,15 +199,15 @@ public class Roster {
 
     } //print roster sorted by standing
 
-    public void ChangeMajor(Profile p, Major newMajor){
+    public boolean ChangeMajor(Profile p, Major newMajor) {
         //find in roster based on profile
-        for(int i=0; i<size; i++){
-            if(roster[i].getProfile().toString().equals(p.toString())){
+        for (int i = 0; i < size; i++) {
+            if (roster[i].getProfile().toString().equals(p.toString())) {
                 roster[i].setMajor(newMajor);
-                return;
+                return true;
             }
         }
-        System.out.println("Student not found");
+        return false;
     }
 }
 
