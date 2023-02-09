@@ -158,6 +158,19 @@ public class Roster {
 
     public void printByStanding() {
         //for all freshmen, go by all first to last name order
+
+        for(int i=0; i<size; i++){
+            int min = i;
+            for(int j=1+i; j<size; j++){
+                if((roster[j].compareTo(roster[min]))== -1){
+                    min = j;
+                }
+            }
+            Student temp = roster[min];
+            roster[min] = roster[i];
+            roster[i] = temp;
+        }
+
         for(int i=0; i<size; i++){
             int min = i;
             for(int j=1+i; j<size; j++){

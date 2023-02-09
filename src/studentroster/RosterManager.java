@@ -12,8 +12,7 @@ public class RosterManager {
         boolean checkQuit = false;
 
 
-        while((input.hasNext()) && checkQuit == false) { //IMPORTANTE! fix how to quit
-            System.out.println();
+        while((input.hasNext()) && !checkQuit) {
             inputString = input.nextLine();
             if(inputString.equals("Q")) {
                 System.out.print("Roster Manager terminated");
@@ -31,6 +30,8 @@ public class RosterManager {
         //this list will be used
         String[] majorList = {"CS", "EE","ITI", "BAIT","MATH"};
         String action = st.nextToken();
+
+
         if(action.equals("A")) {
             //string tokenizer to divide up the string
 
@@ -68,6 +69,7 @@ public class RosterManager {
                     Student newStudent = new Student(thisStudent, studentMajorEnum, credits);
                     if(!newRoster.contains(newStudent)){
                         newRoster.add(newStudent);
+                        System.out.println(thisStudent.toString() + " added to the roster");
                     }
                 }
             }
@@ -83,14 +85,43 @@ public class RosterManager {
             Student RMStudent = newRoster.ProfileToStudent(RMProfile);
             newRoster.remove(RMStudent);
         } else if(action.equals("P")) {
-            newRoster.print();
+            if(newRoster.getSize() == 0)
+            {
+                System.out.println("Student roster is empty");
+            }
+            else
+            {
+                newRoster.print();
+            }
         } else if(action.equals("PS")) {
-            newRoster.printByStanding();
+            if(newRoster.getSize() == 0)
+            {
+                System.out.println("Student roster is empty");
+            }
+            else
+            {
+                newRoster.printByStanding();
+            }
         } else if(action.equals("PC")) {
-            newRoster.printBySchoolMajor();
+            if(newRoster.getSize() == 0)
+            {
+                System.out.println("Student roster is empty");
+            }
+            else
+            {
+                newRoster.printBySchoolMajor();
+            }
         } else if(action.equals("L")) {
-            String schoolName = st.nextToken().toUpperCase();
-            newRoster.printBySchool(schoolName);
+            if(newRoster.getSize() == 0)
+            {
+                System.out.println("Student roster is empty");
+            }
+            else
+            {
+                String schoolName = st.nextToken().toUpperCase();
+                newRoster.printBySchool(schoolName);
+            }
+
         } else if(action.equals("C")) {
             //takes in info about student
             String firstName = st.nextToken();
@@ -108,6 +139,9 @@ public class RosterManager {
         } else if(action.equals("Q")) {
             System.out.println("Roster Manager terminated.");
             return;
+        }
+        else {
+            System.out.println(st + " is an invalid command!");
         }
 
     }

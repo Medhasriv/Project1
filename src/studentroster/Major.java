@@ -24,7 +24,6 @@ public enum Major {
         return courseId;
     }
 
-    //ASK HER IF ENUM CLASSES HAVE THEIR OWN TO STRING: we're calling the toString in our Roster class
 
 
 

@@ -95,9 +95,3 @@ public class Profile implements Comparable<Profile>{
 }
 
 
-/*
-
-- what are we comparing for in profile?
--for date: do we need getter method? up to you!
-
- */
