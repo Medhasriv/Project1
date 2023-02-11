@@ -175,7 +175,7 @@ public class Roster {
             int min = i;
             for(int j=1+i; j<size; j++){
 
-                if(roster[j].getStanding() < ((roster[min].getStanding()))){
+                if(roster[j].getYear().compareTo((roster[min].getYear())) <0){
 
                     min = j;
                 }

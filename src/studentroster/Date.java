@@ -65,19 +65,19 @@ public class Date implements Comparable<Date> {
 
 
         public boolean isValidDay() {
-                if ( (month == Calendar.JANUARY || month == Calendar.MARCH || month == Calendar.MAY || month == Calendar.JULY|| month == Calendar.AUGUST || month == Calendar.AUGUST || month == Calendar.DECEMBER) && ((day<=31) && (day>=1)) )
+                if ( (month == (Calendar.JANUARY+1) || month == (Calendar.MARCH+1) || month == (Calendar.MAY+1) || month == (Calendar.JULY+1)|| month == (Calendar.AUGUST+1) || month == (Calendar.OCTOBER+1) || month == (Calendar.DECEMBER+1)) && ((day<=31) && (day>=1)) )
                 {
                         return true;
                 }
-                else if ( (month == Calendar.APRIL|| month == Calendar.JUNE || month == Calendar.SEPTEMBER || month == Calendar.NOVEMBER) && ((day<=30) && (day>=1)) )
+                else if ( (month == (Calendar.APRIL+1) || month == (Calendar.JUNE+1) || month == (Calendar.SEPTEMBER+1) || month == (Calendar.NOVEMBER+1)) && ((day<=30) && (day>=1)) )
                 {
                         return true;
                 }
-                else if ( (month == Calendar.FEBRUARY) && ( isLeapYear()) && ((day<=29) && (day>=1)) )
+                else if ( (month == (Calendar.FEBRUARY+1)) && ( isLeapYear()) && ((day<=29) && (day>=1)) )
                 {
                         return true;
                 }
-                else if ( (month == Calendar.FEBRUARY) && ( !isLeapYear()) && ((day<=28) && (day>=1)) )
+                else if ( (month == (Calendar.FEBRUARY+1)) && ( !isLeapYear()) && ((day<=28) && (day>=1)) )
                 {
                         return true;
                 }

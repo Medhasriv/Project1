@@ -42,26 +42,7 @@ public class Student implements Comparable<Student> {
         return creditCompleted;
     }
 
-    public char getStanding()
-    {
-        if(creditCompleted >= Standing.MIN_Freshmen.minCredits && creditCompleted < Standing.MIN_Sophomore.minCredits )  //junior
-        {
-            return Standing.MIN_Freshmen.association;
-        }
-        if(creditCompleted >= Standing.MIN_Sophomore.minCredits && creditCompleted < Standing.MIN_Junior.minCredits )  //junior
-        {
-            return Standing.MIN_Sophomore.association;  //senior = d
-        }
-        if(creditCompleted >= Standing.MIN_Junior.minCredits && creditCompleted < Standing.MIN_Senior.minCredits )  //junior
-        {
-            return Standing.MIN_Junior.association; //senior = d
-        }
-        else
-        {
-             return Standing.MIN_Senior.association; //senior = d
-        }
 
-    }
 
     public String getYear()
     {
