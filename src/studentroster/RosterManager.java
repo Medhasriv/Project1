@@ -5,6 +5,9 @@ public class RosterManager {
     Scanner input  = new Scanner(System.in);
     Roster newRoster = new Roster();
 
+    /**
+     * Reads all the line commands until the user types Q
+     */
     public void run()
     {
         System.out.print("Roster Manager running...\n");
@@ -24,6 +27,11 @@ public class RosterManager {
         }
         input.close();
     }
+
+    /**
+     * Helper method to the run() class that takes in the input and performs the command needed
+     * @param inputString
+     */
     public void assignValues(String inputString) {
         StringTokenizer st = new StringTokenizer(inputString, " ");
 

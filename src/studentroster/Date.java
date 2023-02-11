@@ -7,6 +7,10 @@ public class Date implements Comparable<Date> {
         private int day;
 
 
+
+        /**
+         * default constructor for the Date class
+         */
         public Date() {
                 Calendar today = Calendar.getInstance();
                 this.year = today.get(Calendar.YEAR);
@@ -16,6 +20,10 @@ public class Date implements Comparable<Date> {
 
         }//create an object with today’s date (see Calendar class)
 
+        /**
+         * Gets today's date
+         * @return today's date
+         */
         public Date getToday()
         {
                 Calendar today = Calendar.getInstance();
@@ -25,23 +33,11 @@ public class Date implements Comparable<Date> {
                 Date t = new Date(month, day, year);
                 return t;
         }
-        public Date(int y, int m, int d) {
-                year = y;
-                month = m;
-                day = d;
-        } //take “mm/dd/yyyy” and create a Date object
 
-        public int getYear(){
-                return year;
-        }
-
-        public int getMonth(){
-                return month;
-        }
-
-        public int getDay(){
-              return day;
-        }
+        /**
+         *Saves the month, day, and year, if the Date object was created with the parameter as a String
+         * @param date as a String
+         */
         public Date(String date) {
                 String[] arrOfStr = date.split("/", 3);
 
@@ -49,13 +45,50 @@ public class Date implements Comparable<Date> {
                 String d= (arrOfStr[1]);
                 String y = (arrOfStr[2]);
 
-                 month = Integer.parseInt(m);
-                 day = Integer.parseInt(d);
-                 year = Integer.parseInt(y);
+                month = Integer.parseInt(m);
+                day = Integer.parseInt(d);
+                year = Integer.parseInt(y);
         }
 
+        /**
+         *@param y the year
+         *@param m the month
+         * @param d the day
+         */
+        public Date(int y, int m, int d) {
+                year = y;
+                month = m;
+                day = d;
+        } //take “mm/dd/yyyy” and create a Date object
 
+        /**
+         * Returns the year of the date
+         * @return the year
+         */
+        public int getYear(){
+                return year;
+        }
 
+        /**
+         * Returns the month of the year
+         * @return the month
+         */
+        public int getMonth(){
+                return month;
+        }
+
+        /**
+         * Returns the day of the date
+         * @return the day
+         */
+        public int getDay(){
+              return day;
+        }
+
+        /**
+         * Returns if the month is a valid date
+         * @return a boolean true is it's a valid date; false if it's not a valid date
+         */
         public boolean isValidMonth() {
                 if(month >= 1 && month <=12) {
                         return true;
@@ -63,7 +96,10 @@ public class Date implements Comparable<Date> {
                 return false;
         }
 
-
+        /**
+         * Checks if the day of date is valid
+         * @return true if the day a valid day for a particular month, and is valid
+         */
         public boolean isValidDay() {
                 if ( (month == (Calendar.JANUARY+1) || month == (Calendar.MARCH+1) || month == (Calendar.MAY+1) || month == (Calendar.JULY+1)|| month == (Calendar.AUGUST+1) || month == (Calendar.OCTOBER+1) || month == (Calendar.DECEMBER+1)) && ((day<=31) && (day>=1)) )
                 {
@@ -89,6 +125,10 @@ public class Date implements Comparable<Date> {
 
         }
 
+        /**
+         * Checks if the year is a leap year
+         * @return true is the year is a leap year; false otherwise
+         */
         public boolean isLeapYear() {
 
                 final int QUADRENNIAL = 4;
@@ -110,6 +150,10 @@ public class Date implements Comparable<Date> {
 
         }
 
+        /**
+         * Checks if the date is valid overall
+         * @return true if the date is a valid date
+         */
         public boolean isValid() {
                 if(this.isValidDay() && this.isValidMonth() ) {
                         return true;
@@ -117,12 +161,20 @@ public class Date implements Comparable<Date> {
                 return false;
         } //check if a date is a valid calendar date
 
-
+        /**
+         * Returns the string containing the month, day, and year
+         * @return the month, day, and year
+         */
         @Override
         public String toString() {
                 return month + "/" + day + "/" + year;
         }
 
+        /**
+         * Checks if the current Date is equal to another object, if also of type Date
+         * @param other
+         * @return
+         */
         @Override
         public boolean equals(Object other) {
 
@@ -139,8 +191,11 @@ public class Date implements Comparable<Date> {
         //ASK HER - do I need to remove override command here? Why am I having problems with equal override method
 
 
-
-
+        /**
+         * Compares the current date object to another date object to see if current date is before or after
+         * @param other the object to be compared.
+         * @return -1 if before than, 1 if after, and 0 if equal
+         */
         @Override
         public int compareTo(Date other) {
                 if(this.year> other.year)
@@ -168,6 +223,9 @@ public class Date implements Comparable<Date> {
                 return 0;
         }
 
+        /**
+         * Tests the Date class
+         */
         public static void main()
         {
                 Date test1 = new Date(2003, 8,18);
