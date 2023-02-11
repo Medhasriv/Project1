@@ -5,6 +5,13 @@ public class Profile implements Comparable<Profile>{
     private String fname;
     private Date dob;
 
+    /**
+     * Makes a profile given student's full name and DOB
+     *
+     * @param last Student's last name
+     * @param first Student's first name
+     * @param d Student's date of birth
+     * */
     public Profile(String last, String first, Date d)
     {
         this.lname = last;
@@ -12,6 +19,10 @@ public class Profile implements Comparable<Profile>{
         this.dob = d;
     }
 
+    /**
+     * Gets the age of the student given the date of birth
+     * @return integer which is the age
+     * */
     public int getAge()
     {
         int m = dob.getMonth();
@@ -41,6 +52,12 @@ public class Profile implements Comparable<Profile>{
 
     }
 
+    /**
+     * Returns true if two profiles are equal
+     *
+     * @param p Profile of the student to chedck
+     * @return returns true if equal
+     * */
     @Override
     public boolean equals(Object p)
     {
@@ -54,6 +71,10 @@ public class Profile implements Comparable<Profile>{
         return false;
 
     }
+
+    /**
+     * @return string of the profile
+     * */
     @Override
     public String toString()
     {
@@ -62,6 +83,10 @@ public class Profile implements Comparable<Profile>{
     }
 
 
+    /**
+     * @param other profile to compare for
+     * @return positive if the first profile is bigger, negative if first profile smaller, zero if they are equal
+     * */
     @Override
     public int compareTo(Profile other) {
         if((this.lname.compareTo(other.lname))> 0) //pos means greater than 0; here we're comparing string compareTo
