@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package studentroster;
 import java.util.Calendar;
 
@@ -59,8 +63,7 @@ public class Date implements Comparable<Date> {
                 year = y;
                 month = m;
                 day = d;
-        } //take “mm/dd/yyyy” and create a Date object
-
+        }
         /**
          * Returns the year of the date
          * @return the year
@@ -172,8 +175,8 @@ public class Date implements Comparable<Date> {
 
         /**
          * Checks if the current Date is equal to another object, if also of type Date
-         * @param other
-         * @return
+         * @param other the other date to check
+         * @return returns true if dates equal
          */
         @Override
         public boolean equals(Object other) {

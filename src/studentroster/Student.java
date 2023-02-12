@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package studentroster;
 import java.util.Scanner;
 
@@ -12,7 +16,6 @@ public class Student implements Comparable<Student> {
      * @param p Profile of the student
      * @param m Major of the student
      * @param credits Number of credits of the student
-     * @return Student object
      * */
     public Student(Profile p, Major m, int credits)
     {
@@ -24,7 +27,6 @@ public class Student implements Comparable<Student> {
     /**
      * Makes a Student given a profile
      * @param p Profile of the student
-     * @return Student object
      * */
     public Student(Profile p)
     {

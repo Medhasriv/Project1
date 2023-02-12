@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package studentroster;
 
 import studentroster.Student;
@@ -42,7 +46,6 @@ public class Roster {
 
     /**
      * Grows the size of the student array by 4
-     * @return Increases the size of the Roster by 4
      * */
     private void grow() {
         Student[] newArray = new Student[size + 4];
@@ -89,7 +92,7 @@ public class Roster {
 
     /**
      * @param student Student we are removing
-     * @remove returns true if the student has successfully been removed
+     * @return true if student successfully removed
      * */
     public boolean remove(Student student){
         for(int i=0; i<=size-1; i++){
@@ -244,6 +247,7 @@ public class Roster {
      * Changes the major of the Student
      * @param p Given a profile of a student who's major to change
      * @param newMajor Assigning a new major to the student
+     * @return true if major has successfully been changed
      * */
     public boolean ChangeMajor(Profile p, Major newMajor) {
         //find in roster based on profile

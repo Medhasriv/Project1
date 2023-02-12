@@ -1,3 +1,7 @@
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
 package studentroster;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -30,7 +34,7 @@ public class RosterManager {
 
     /**
      * Helper method to the run() class that takes in the input and performs the command needed
-     * @param inputString
+     * @param inputString String that is the input letter, (EX: "A")
      */
     public void assignValues(String inputString) {
         StringTokenizer st = new StringTokenizer(inputString, " ");
